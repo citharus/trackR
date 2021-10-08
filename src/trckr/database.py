@@ -20,9 +20,13 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from datetime import datetime
+from typing import Dict, Any
+
 
 class Database:
     __instance: None = None
+    __table: Dict[datetime, Any] = dict()
 
     def __new__(cls) -> 'Database':
         if not cls.__instance:
