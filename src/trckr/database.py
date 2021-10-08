@@ -31,3 +31,6 @@ class Database:
         if not cls.__instance:
             cls.__instance: 'Database' = super(Database, cls).__new__(cls)
         return cls.__instance
+
+    def add(self, key, value):
+        self.__table[key] = value
