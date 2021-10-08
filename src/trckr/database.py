@@ -32,7 +32,7 @@ class Database:
             cls.__instance: 'Database' = super(Database, cls).__new__(cls)
         return cls.__instance
 
-    def add(self, key, value):
+    def add(self, key, value) -> None:
         self.__table[key] = value
 
     def remove(self, key) -> None:
