@@ -23,6 +23,8 @@
 from datetime import datetime
 from typing import Dict, Any
 
+__all__: list = ['Database']
+
 
 class Database:
     __instance: None = None
