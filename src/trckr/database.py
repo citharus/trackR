@@ -24,7 +24,7 @@
 class Database:
     __instance: None = None
 
-    def __new__(cls) -> object:
+    def __new__(cls) -> 'Database':
         if not cls.__instance:
             cls.__instance: 'Database' = super(Database, cls).__new__(cls)
         return cls.__instance
