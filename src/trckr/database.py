@@ -35,9 +35,8 @@ class Database:
     def add(self, key, value):
         self.__table[key] = value
 
-    def remove(self, key) -> bool:
+    def remove(self, key) -> None:
         try:
             del self.__table[key]
         except KeyError:
-            return False
-        return True
+            raise Exception(f'Entry "{key}" does not exist.')
