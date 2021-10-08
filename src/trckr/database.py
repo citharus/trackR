@@ -34,3 +34,10 @@ class Database:
 
     def add(self, key, value):
         self.__table[key] = value
+
+    def remove(self, key) -> bool:
+        try:
+            del self.__table[key]
+        except KeyError:
+            return False
+        return True
