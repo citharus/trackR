@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from typing import Iterator
+
 __all__: list = ['Database']
 
 
@@ -31,3 +33,6 @@ class Database:
         if not cls.__instance:
             cls.__instance: 'Database' = super(Database, cls).__new__(cls)
         return cls.__instance
+
+    def __iter__(self) -> Iterator:
+        return iter(self.__tables)
