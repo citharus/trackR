@@ -25,7 +25,7 @@ __all__: list = ['Database']
 
 class Database:
     __instance: None = None
-    __table: dict = dict()
+    __tables: dict = dict()
 
     def __new__(cls) -> 'Database':
         if not cls.__instance:
