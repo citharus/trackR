@@ -22,4 +22,5 @@
 
 
 class Table:
-    pass
+    def __init__(self):
+        self.rows: dict = dict()
