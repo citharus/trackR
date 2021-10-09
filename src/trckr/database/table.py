@@ -22,4 +22,5 @@
 
 
 class Table(dict):
-    pass
+    def add(self, key, value) -> None:
+        self[key] = value
