@@ -24,3 +24,6 @@
 class Table:
     def __init__(self):
         self.rows: dict = dict()
+
+    def add(self, key, value) -> None:
+        self.rows[key] = value
