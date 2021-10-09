@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from typing import Iterator
+
 
 class Table:
     def __init__(self):
@@ -27,6 +29,9 @@ class Table:
 
     def __len__(self) -> int:
         return len(self.rows)
+
+    def __iter__(self) -> Iterator:
+        return iter(self.rows)
 
     def add(self, key, value) -> None:
         self.rows[key] = value
