@@ -26,7 +26,7 @@ __all__: list = ['Table']
 
 
 class Table:
-    def __init__(self):
+    def __init__(self) -> None:
         self.rows: dict = dict()
 
     def __len__(self) -> int:
