@@ -21,5 +21,5 @@
 #  SOFTWARE.
 
 
-class Table(dict):
+class Table:
     pass
