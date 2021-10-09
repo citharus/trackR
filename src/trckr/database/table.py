@@ -27,3 +27,9 @@ class Table:
 
     def add(self, key, value) -> None:
         self.rows[key] = value
+
+    def update(self, key, value) -> None:
+        try:
+            self.rows[key] = value
+        except KeyError:
+            raise Exception(f'Row "{key}" does not exist.')
