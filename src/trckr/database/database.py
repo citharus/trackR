@@ -22,6 +22,8 @@
 
 from typing import Iterator
 
+from trckr.database import Table
+
 __all__: list = ['Database']
 
 
@@ -36,3 +38,6 @@ class Database:
 
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
+
+    def __getitem__(self, table) -> Table:
+        return self.__tables[table]
