@@ -25,6 +25,9 @@ class Table:
     def __init__(self):
         self.rows: dict = dict()
 
+    def __len__(self) -> int:
+        return len(self.rows)
+
     def add(self, key, value) -> None:
         self.rows[key] = value
 
