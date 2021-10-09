@@ -27,25 +27,25 @@ __all__: list = ['Table']
 
 class Table:
     def __init__(self) -> None:
-        self.rows: dict = dict()
+        self.entries: dict = dict()
 
     def __len__(self) -> int:
-        return len(self.rows)
+        return len(self.entries)
 
     def __iter__(self) -> Iterator:
-        return iter(self.rows)
+        return iter(self.entries)
 
     def add(self, key, value) -> None:
-        self.rows[key] = value
+        self.entries[key] = value
 
     def update(self, key, value) -> None:
         try:
-            self.rows[key] = value
+            self.entries[key] = value
         except KeyError:
-            raise Exception(f'Row "{key}" does not exist.')
+            raise Exception(f'Entry "{key}" does not exist.')
 
     def remove(self, key) -> None:
         try:
-            del self.rows[key]
+            del self.entries[key]
         except KeyError:
-            raise Exception(f'Row "{key}" does not exist.')
+            raise Exception(f'Entry "{key}" does not exist.')
