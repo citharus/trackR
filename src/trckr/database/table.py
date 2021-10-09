@@ -22,6 +22,8 @@
 
 from typing import Iterator
 
+__all__: list = ['Table']
+
 
 class Table:
     def __init__(self):
