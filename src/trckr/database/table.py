@@ -22,11 +22,4 @@
 
 
 class Table(dict):
-    def add(self, key, value) -> None:
-        self[key] = value
-
-    def update(self, key, value) -> None:
-        try:
-            self[key] = value
-        except KeyError:
-            raise Exception(f'Entry {key} does not exist.')
+    pass
