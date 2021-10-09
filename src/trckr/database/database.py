@@ -31,18 +31,3 @@ class Database:
         if not cls.__instance:
             cls.__instance: 'Database' = super(Database, cls).__new__(cls)
         return cls.__instance
-
-    def add(self, key, value) -> None:
-        self.__table[key] = value
-
-    def update(self, key, value) -> None:
-        try:
-            self.__table[key] = value
-        except KeyError:
-            raise Exception(f'Entry "{key}" does not exist.')
-
-    def remove(self, key) -> None:
-        try:
-            del self.__table[key]
-        except KeyError:
-            raise Exception(f'Entry "{key}" does not exist.')
