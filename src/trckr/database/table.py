@@ -33,3 +33,9 @@ class Table:
             self.rows[key] = value
         except KeyError:
             raise Exception(f'Row "{key}" does not exist.')
+
+    def remove(self, key) -> None:
+        try:
+            del self.rows[key]
+        except KeyError:
+            raise Exception(f'Row "{key}" does not exist.')
