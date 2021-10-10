@@ -45,7 +45,7 @@ class Table:
         del self.entries[key]
 
     def add(self, key: Any, value: Any) -> None:
-        self.entries[key] = value
+        self[key] = value
 
     def update(self, key: Any, value: Any) -> None:
         try:
