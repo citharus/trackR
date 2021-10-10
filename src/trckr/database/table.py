@@ -27,22 +27,22 @@ __all__: list = ['Table']
 
 class Table:
     def __init__(self) -> None:
-        self.entries: dict = dict()
+        self.__entries: dict = dict()
 
     def __len__(self) -> int:
-        return len(self.entries)
+        return len(self.__entries)
 
     def __iter__(self) -> Iterator:
-        return iter(self.entries)
+        return iter(self.__entries)
 
     def __getitem__(self, key: Any) -> Any:
-        return self.entries[key]
+        return self.__entries[key]
 
     def __setitem__(self, key: Any, value: Any) -> None:
-        self.entries[key] = value
+        self.__entries[key] = value
 
     def __delitem__(self, key: Any, value: Any) -> None:
-        del self.entries[key]
+        del self.__entries[key]
 
     def add(self, key: Any, value: Any) -> None:
         self[key] = value
