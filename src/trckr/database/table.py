@@ -41,6 +41,9 @@ class Table:
     def __setitem__(self, key: Any, value: Any) -> None:
         self.entries[key] = value
 
+    def __delitem__(self, key: Any, value: Any) -> None:
+        del self.entries[key]
+
     def add(self, key: Any, value: Any) -> None:
         self.entries[key] = value
 
