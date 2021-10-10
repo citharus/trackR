@@ -49,7 +49,7 @@ class Table:
 
     def update(self, key: Any, value: Any) -> None:
         try:
-            self.entries[key] = value
+            self[key] = value
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
 
