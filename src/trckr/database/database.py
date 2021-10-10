@@ -39,5 +39,5 @@ class Database:
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
 
-    def __getitem__(self, table) -> Table:
+    def __getitem__(self, table: str) -> Table:
         return self.__tables[table]
