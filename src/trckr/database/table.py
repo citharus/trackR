@@ -55,6 +55,6 @@ class Table:
 
     def remove(self, key: Any) -> None:
         try:
-            del self.entries[key]
+            del self[key]
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
