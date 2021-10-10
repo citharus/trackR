@@ -38,6 +38,9 @@ class Table:
     def __getitem__(self, key: Any) -> Any:
         return self.entries[key]
 
+    def __setitem__(self, key: Any, value: Any) -> None:
+        self.entries[key] = value
+
     def add(self, key: Any, value: Any) -> None:
         self.entries[key] = value
 
