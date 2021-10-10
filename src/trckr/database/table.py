@@ -53,7 +53,7 @@ class Table:
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
 
-    def remove(self, key: Any) -> None:
+    def delete(self, key: Any) -> None:
         try:
             del self[key]
         except KeyError:
