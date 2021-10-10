@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from typing import Iterator
+from typing import Iterator, Any
 
 __all__: list = ['Table']
 
@@ -35,16 +35,16 @@ class Table:
     def __iter__(self) -> Iterator:
         return iter(self.entries)
 
-    def add(self, key, value) -> None:
+    def add(self, key: Any, value: Any) -> None:
         self.entries[key] = value
 
-    def update(self, key, value) -> None:
+    def update(self, key: Any, value: Any) -> None:
         try:
             self.entries[key] = value
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
 
-    def remove(self, key) -> None:
+    def remove(self, key: Any) -> None:
         try:
             del self.entries[key]
         except KeyError:
