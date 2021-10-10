@@ -35,6 +35,9 @@ class Table:
     def __iter__(self) -> Iterator:
         return iter(self.entries)
 
+    def __getitem__(self, key: Any) -> Any:
+        return self.entries[key]
+
     def add(self, key: Any, value: Any) -> None:
         self.entries[key] = value
 
