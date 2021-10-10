@@ -20,6 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from pathlib import Path
 from typing import Iterator
 
 from trckr.database import Table
@@ -37,7 +38,7 @@ class Database:
         return cls.__instance
 
     def __init__(self, path: str) -> None:
-        self.path: str = path
+        self.path: Path = Path(path)
 
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
