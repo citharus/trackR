@@ -42,6 +42,9 @@ class Database:
     def __getitem__(self, table: str) -> Table:
         return self.__tables[table]
 
+    def __setitem__(self, table_name: str, table: Table) -> None:
+        self.__tables[table_name] = table
+
     def create_table(self, table_name: str) -> Table:
         table = self.__tables[table_name] = Table()
         return table
