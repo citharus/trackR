@@ -51,3 +51,9 @@ class Database:
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table()
         return table
+
+    def delete_table(self, table_name: str) -> None:
+        try:
+            del self[table_name]
+        except KeyError:
+            raise Exception(f'Table "{table_name}" does not exist.')
