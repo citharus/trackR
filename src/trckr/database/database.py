@@ -31,10 +31,13 @@ class Database:
     __instance: None = None
     __tables: dict = dict()
 
-    def __new__(cls) -> 'Database':
+    def __new__(cls, *args) -> 'Database':
         if not cls.__instance:
-            cls.__instance: 'Database' = super(Database, cls).__new__(cls)
+            cls.__instance: 'Database' = super().__new__(cls, *args)
         return cls.__instance
+
+    def __init__(self, path: str) -> None:
+        self.path: str = path
 
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
