@@ -46,5 +46,5 @@ class Database:
         self.__tables[table_name] = table
 
     def create_table(self, table_name: str) -> Table:
-        table = self.__tables[table_name] = Table()
+        table = self[table_name] = Table()
         return table
