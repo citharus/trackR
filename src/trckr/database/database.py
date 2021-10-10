@@ -39,8 +39,8 @@ class Database:
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
 
-    def __getitem__(self, table: str) -> Table:
-        return self.__tables[table]
+    def __getitem__(self, table_name: str) -> Table:
+        return self.__tables[table_name]
 
     def __setitem__(self, table_name: str, table: Table) -> None:
         self.__tables[table_name] = table
