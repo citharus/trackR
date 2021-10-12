@@ -23,7 +23,7 @@
 from pathlib import Path
 from typing import Iterator
 
-from trckr.database import Table
+from trckr.database.table import Table
 
 __all__: list = ['Database']
 
