@@ -21,4 +21,3 @@
 #  SOFTWARE.
 
 from .__meta__ import *
-from .database import *
