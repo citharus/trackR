@@ -20,7 +20,6 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import os
 from pathlib import Path
 from typing import Iterator
 
@@ -39,7 +38,9 @@ class Database:
         return cls.__instance
 
     def __init__(self, path: str) -> None:
-        self.path: Path = Path(path)
+        self.path: Path = Path(path).expanduser()
+        if not self.path.exists():
+            self.path.mkdir(parents=True)
 
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
