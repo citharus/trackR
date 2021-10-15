@@ -23,6 +23,7 @@
 from pathlib import Path
 from typing import Iterator
 
+import bson
 from trckr.database.table import Table
 
 __all__: list = ['Database']
@@ -53,6 +54,11 @@ class Database:
 
     def __delitem__(self, table_name: str) -> None:
         del self.__tables[table_name]
+
+    def save(self) -> None:
+        for table in self:
+            with open(self.path / table, 'wb') as file:
+                file.write(bson.dumps(self[table].entries))
 
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table()
