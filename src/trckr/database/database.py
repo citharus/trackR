@@ -20,6 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+import os
 from pathlib import Path
 from typing import Iterator
 
@@ -34,7 +35,7 @@ class Database:
 
     def __new__(cls, *args) -> 'Database':
         if not cls.__instance:
-            cls.__instance: 'Database' = super().__new__(cls, *args)
+            cls.__instance: 'Database' = super().__new__(cls)
         return cls.__instance
 
     def __init__(self, path: str) -> None:
