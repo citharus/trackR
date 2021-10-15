@@ -22,7 +22,7 @@
 
 __all__: list = ['__version__']
 
-__raw_version__: tuple = (0, 0, 0, 'dev', 1)
+__raw_version__: tuple = (0, 1, 0, 'alpha', 1)
 
 
 def _get_version(raw_version: tuple) -> str:
