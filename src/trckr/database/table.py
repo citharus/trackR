@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from typing import Iterator, Callable, Any
+from typing import Iterable, Callable, Any
 
 __all__: list = ['Table']
 
@@ -36,7 +36,7 @@ class Table:
     def __len__(self) -> int:
         return len(self.__entries)
 
-    def __iter__(self) -> Iterator:
+    def __iter__(self) -> Iterable['Table']:
         return iter(self.__entries)
 
     def __getitem__(self, key: Any) -> Any:
@@ -63,5 +63,5 @@ class Table:
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
 
-    def query(self, key: Callable, limit: int = 10) -> Iterator:
+    def query(self, key: Callable, limit: int = 10) -> Iterable['Table']:
         return sorted(self[:limit], key=key)
