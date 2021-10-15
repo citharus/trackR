@@ -63,7 +63,7 @@ class Database:
     def load(self) -> None:
         for table in self.path.iterdir():
             with open(table, 'rb') as file:
-                self[table.name] = Table(bson.loads(file.read()))
+                self[table.name] = Table(entries=bson.loads(file.read()))
 
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table()
