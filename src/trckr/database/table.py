@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-from typing import Iterator, Any
+from typing import Iterator, Callable, Any
 
 __all__: list = ['Table']
 
@@ -58,3 +58,6 @@ class Table:
             del self[key]
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
+
+    def query(self, key: Callable, limit: int = 10) -> Iterator:
+        return sorted(self[:limit], key=key)
