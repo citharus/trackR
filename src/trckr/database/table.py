@@ -26,8 +26,12 @@ __all__: list = ['Table']
 
 
 class Table:
-    def __init__(self) -> None:
-        self.__entries: dict = dict()
+    def __init__(self, *, entries=None) -> None:
+        self.__entries: dict = entries or dict()
+
+    @property
+    def entries(self) -> dict:
+        return self.__entries
 
     def __len__(self) -> int:
         return len(self.__entries)

@@ -20,10 +20,10 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import os
 from pathlib import Path
 from typing import Iterator
 
+import bson
 from trckr.database.table import Table
 
 __all__: list = ['Database']
@@ -39,7 +39,9 @@ class Database:
         return cls.__instance
 
     def __init__(self, path: str) -> None:
-        self.path: Path = Path(path)
+        self.path: Path = Path(path).expanduser()
+        if not self.path.exists():
+            self.path.mkdir(parents=True)
 
     def __iter__(self) -> Iterator:
         return iter(self.__tables)
@@ -52,6 +54,16 @@ class Database:
 
     def __delitem__(self, table_name: str) -> None:
         del self.__tables[table_name]
+
+    def save(self) -> None:
+        for table in self:
+            with open(self.path / table, 'wb') as file:
+                file.write(bson.dumps(self[table].entries))
+
+    def load(self) -> None:
+        for table in self.path.iterdir():
+            with open(table, 'rb') as file:
+                self[table.name] = Table(bson.loads(file.read()))
 
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table()
