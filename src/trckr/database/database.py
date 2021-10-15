@@ -60,6 +60,11 @@ class Database:
             with open(self.path / table, 'wb') as file:
                 file.write(bson.dumps(self[table].entries))
 
+    def load(self) -> None:
+        for table in self.path.iterdir():
+            with open(table, 'rb') as file:
+                self[table.name] = Table(bson.loads(file.read()))
+
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table()
         return table
