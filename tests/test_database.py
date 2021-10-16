@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+import pytest
+
 
 def test_path_creation(database):
     assert database.path.exists() is True
@@ -30,3 +32,10 @@ def test_create_table(database):
 
     database.create_table('test_table')
     assert isinstance(database['test_table'], Table)
+
+
+def test_delete_table(database):
+    database.delete_table('test_table')
+
+    with pytest.raises(KeyError):
+        database['test_table']
