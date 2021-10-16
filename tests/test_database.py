@@ -24,3 +24,9 @@
 def test_path_creation(database):
     assert database.path.exists() is True
 
+
+def test_create_table(database):
+    from trckr.database import Table
+
+    database.create_table('test_table')
+    assert isinstance(database['test_table'], Table)
