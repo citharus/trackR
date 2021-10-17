@@ -49,3 +49,10 @@ def test_delitem(database):
 
 def test_create_table(database):
     database.create_table('test_table')
+
+
+def test_delete_table(database):
+    database.delete_table('test_table')
+
+    with pytest.raises(Exception):
+        database.delete_table('test_table')
