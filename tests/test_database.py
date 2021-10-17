@@ -38,3 +38,10 @@ def test_getitem(database):
 
     with pytest.raises(KeyError):
         database['non_existing_table']
+
+
+def test_delitem(database):
+    del database['test_table']
+
+    with pytest.raises(KeyError):
+        del database['non_existing_table']
