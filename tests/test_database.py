@@ -20,8 +20,12 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import pytest
-
 
 def test_path(database):
     assert database.path.exists() is True
+
+
+def test_setitem(database):
+    from trckr.database import Table
+
+    database['test_table'] = Table()
