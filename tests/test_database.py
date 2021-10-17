@@ -25,14 +25,3 @@ import pytest
 
 def test_path(database):
     assert database.path.exists() is True
-
-
-def test_create_table(database):
-    database.create_table('test_table')
-
-
-def test_delete_table(database):
-    database.delete_table('test_table')
-
-    with pytest.raises(KeyError):
-        database['test_table']
