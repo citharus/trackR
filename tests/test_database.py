@@ -45,3 +45,7 @@ def test_delitem(database):
 
     with pytest.raises(KeyError):
         del database['non_existing_table']
+
+
+def test_create_table(database):
+    database.create_table('test_table')
