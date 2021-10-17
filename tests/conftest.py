@@ -24,7 +24,7 @@ import pytest
 from trckr.database import Database
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='function')
 def database():
     return Database('~/.local/share/trckr/database')
 
