@@ -33,11 +33,11 @@ def test_setitem(database):
     database['test_table'] = Table()
 
 
-def test_getitem(database):
-    database['test_table']
+def test_getitem(database_with_table):
+    database_with_table['test_table']
 
     with pytest.raises(KeyError):
-        database['non_existing_table']
+        database_with_table['non_existing_table']
 
 
 def test_delitem(database):
