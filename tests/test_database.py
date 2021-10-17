@@ -23,7 +23,7 @@
 import pytest
 
 
-def test_path_creation(database):
+def test_path(database):
     assert database.path.exists() is True
 
 
