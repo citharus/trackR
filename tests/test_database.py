@@ -28,10 +28,7 @@ def test_path(database):
 
 
 def test_create_table(database):
-    from trckr.database import Table
-
     database.create_table('test_table')
-    assert isinstance(database['test_table'], Table)
 
 
 def test_delete_table(database):
