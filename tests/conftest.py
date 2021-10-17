@@ -27,3 +27,10 @@ from trckr.database import Database
 @pytest.fixture(scope='module')
 def database():
     return Database('~/.local/share/trckr/database')
+
+
+@pytest.fixture(scope='function')
+def database_with_table():
+    database = Database('~/.local/share/trckr/database')
+    database.create_table('test_table')
+    return database
