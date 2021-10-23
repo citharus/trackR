@@ -34,7 +34,7 @@ class Database:
     __tables: dict = dict()
 
     def __new__(cls, *args, **kwargs) -> 'Database':
-        if kwargs['singleton']:
+        if ('singleton' not in kwargs) or ('singleton' is True):
             if not cls.__instance:
                 cls.__instance: 'Database' = super().__new__(cls)
             return cls.__instance
