@@ -33,14 +33,12 @@ class Database:
     __instance: None = None
     __tables: dict = dict()
 
-    def __new__(cls, *args, **kwargs) -> 'Database':
-        if ('singleton' not in kwargs) or ('singleton' is True):
-            if not cls.__instance:
-                cls.__instance: 'Database' = super().__new__(cls)
-            return cls.__instance
-        return super().__new__(cls)
+    def __new__(cls, *args) -> 'Database':
+        if not cls.__instance:
+            cls.__instance: 'Database' = super().__new__(cls)
+        return cls.__instance
 
-    def __init__(self, path: str, *, singleton: bool = True) -> None:
+    def __init__(self, path: str) -> None:
         self.path: Path = Path(path).expanduser()
         if not self.path.exists():
             self.path.mkdir(parents=True)
