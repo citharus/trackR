@@ -35,9 +35,6 @@ class Table:
     def __iter__(self) -> Iterable['Table']:
         return iter(self.__entries)
 
-    def __dict__(self) -> dict:
-        return self.__entries
-
     def __getitem__(self, key: Any) -> Any:
         return self.__entries[key]
 
