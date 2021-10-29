@@ -57,8 +57,8 @@ class Database:
 
     def save(self) -> None:
         for table in self:
-            with open(self.path / table, 'wb') as file:
-                data: bytes = bson.dumps(dict(self[table].__dict__()))
+            with open(self.path / table.name, 'wb') as file:
+                data: bytes = bson.dumps(dict(self[table.name].__dict__()))
                 file.write(data)
 
     def load(self) -> None:
