@@ -65,7 +65,7 @@ class Database:
         for table in self.path.iterdir():
             with open(table, 'rb') as file:
                 data: dict = bson.loads(file.read())
-                self[table.name] = Table(entries=data)
+                self[table.name] = Table(table.name, entries=data)
 
     def create_table(self, table_name: str) -> Table:
         table = self[table_name] = Table(table_name)
