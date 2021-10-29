@@ -30,7 +30,7 @@ def test_path(database):
 def test_setitem(database):
     from trckr.database import Table
 
-    database['test_table'] = Table()
+    database['test_table'] = Table('test_table')
 
 
 def test_getitem(database_with_table):
