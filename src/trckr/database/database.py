@@ -68,7 +68,7 @@ class Database:
                 self[table.name] = Table(entries=data)
 
     def create_table(self, table_name: str) -> Table:
-        table = self[table_name] = Table()
+        table = self[table_name] = Table(table_name)
         return table
 
     def delete_table(self, table_name: str) -> None:
