@@ -26,9 +26,8 @@ from trckr.database import Table
 
 def generate_preview_image(
         table: Table,
-        limit: int,
 ) -> bytes:
-    entries = table.query(limit=limit)
+    entries = table.query(limit=10)
     figure: go.Figure = go.Figure(
         data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
     )
