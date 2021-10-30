@@ -21,15 +21,13 @@
 #  SOFTWARE.
 
 import plotly.graph_objects as go
-from trckr.database import Database
+from trckr.database import Table
 
 
 def generate_preview_image(
-        database: Database,
-        table_name: str,
-        limit: int,
+        table: Table,
 ) -> bytes:
-    entries = database[table_name].query(limit=limit)
+    entries = table.query(limit=10)
     figure: go.Figure = go.Figure(
         data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
     )
