@@ -20,23 +20,20 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+from typing import Union
+
 import plotly.graph_objects as go
 from trckr.database import Table
 
 
-def generate_preview_image(
+def plot(
         table: Table,
-) -> bytes:
-    entries = table.query(limit=10)
+        limit: int,
+        *,
+        preview: bool = False,
+) -> Union[bytes, str]:
+    entries: dict = table.query(limit=10 if preview else limit)
     figure: go.Figure = go.Figure(
         data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
     )
-    return figure.to_image(format='svg')
-
-
-def generate_iFrame(table: Table, limit: int) -> str:
-    entries = table.query(limit=limit)
-    figure: go.Figure = go.Figure(
-        data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
-    )
-    return figure.to_html()
+    return figure.to_image(format='svg') if preview else figure.to_html()
