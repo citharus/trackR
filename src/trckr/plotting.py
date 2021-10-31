@@ -28,11 +28,10 @@ from trckr.database import Table
 
 def plot(
         table: Table,
-        limit: int,
         *,
         preview: bool = False,
 ) -> Union[bytes, str]:
-    entries: dict = table.query(limit=10 if preview else limit)
+    entries: dict = table.query(limit=10 if preview else None)
     figure: go.Figure = go.Figure(
         data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
     )
