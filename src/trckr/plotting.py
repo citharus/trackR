@@ -32,3 +32,11 @@ def generate_preview_image(
         data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
     )
     return figure.to_image(format='svg')
+
+
+def generate_iFrame(table: Table, limit: int) -> str:
+    entries = table.query(limit=limit)
+    figure: go.Figure = go.Figure(
+        data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
+    )
+    return figure.to_html()
