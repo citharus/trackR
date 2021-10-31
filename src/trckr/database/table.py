@@ -63,5 +63,5 @@ class Table:
         except KeyError:
             raise Exception(f'Entry "{key}" does not exist.')
 
-    def query(self, key: Callable = None, limit: int = -1) -> dict:
+    def query(self, key: Callable = None, limit: int = None) -> dict:
         return dict(sorted(self.__entries.items(), key=key)[:limit])
