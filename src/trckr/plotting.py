@@ -33,6 +33,11 @@ def plot(
 ) -> Union[bytes, str]:
     entries: dict = table.query(limit=10 if preview else None)
     figure: go.Figure = go.Figure(
-        data=[go.Scatter(x=list(entries.keys()), y=list(entries.values()))]
+        data=[
+            go.Scatter(
+                x=list(entries.keys()),
+                y=list(entries.values()),
+            )
+        ]
     )
     return figure.to_image(format='svg') if preview else figure.to_html()
