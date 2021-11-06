@@ -26,11 +26,7 @@ import plotly.graph_objects as go
 from trckr.database import Table
 
 
-def plot(
-        table: Table,
-        *,
-        preview: bool = False,
-) -> Union[bytes, str]:
+def plot(table: Table, *, preview: bool = False) -> Union[bytes, str]:
     entries: dict = table.query(limit=10 if preview else None)
     figure: go.Figure = go.Figure(
         data=[
