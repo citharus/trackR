@@ -33,8 +33,8 @@ def test_create_table(database):
 
 def test_delete_table(database):
     database.delete_table('test_create_table')
-    with pytest.raises(KeyError):
-        database['test_create_table']
+    with pytest.raises(Exception):
+        database.delete_table('test_create_table')
 
 
 def test_save(database):
