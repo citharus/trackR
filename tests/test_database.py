@@ -20,6 +20,8 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+import os
+
 import pytest
 from trckr.database import Table
 
@@ -33,3 +35,10 @@ def test_delete_table(database):
     database.delete_table('test_create_table')
     with pytest.raises(KeyError):
         database['test_create_table']
+
+
+def test_save(database):
+    database.create_table('test_save')
+    database['test_save'].add('key', 'value')
+    database.save()
+    assert os.path.exists(f'{database.path}/test_save') is True
