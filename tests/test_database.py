@@ -42,3 +42,10 @@ def test_save(database):
     database['test_save'].add('key', 'value')
     database.save()
     assert os.path.exists(f'{database.path}/test_save') is True
+
+
+def test_load(database):
+    cached_table = database['test_save']
+    database.delete_table('test_save')
+    database.load()
+    assert database['test_save'].query() == cached_table.query()
