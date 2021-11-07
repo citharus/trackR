@@ -20,9 +20,16 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+import pytest
 from trckr.database import Table
 
 
 def test_create_table(database):
     database.create_table('test_create_table')
     assert isinstance(database['test_create_table'], Table) is True
+
+
+def test_delete_table(database):
+    database.delete_table('test_create_table')
+    with pytest.raises(KeyError):
+        database['test_create_table']
