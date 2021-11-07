@@ -19,3 +19,10 @@
 #  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
+
+from trckr.database import Table
+
+
+def test_create_table(database):
+    database.create_table('test_create_table')
+    assert isinstance(database['test_create_table'], Table) is True
