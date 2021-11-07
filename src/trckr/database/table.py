@@ -45,7 +45,7 @@ class Table:
     def __setitem__(self, key: Any, value: Any) -> None:
         self.__entries[key] = value
 
-    def __delitem__(self, key: Any, value: Any) -> None:
+    def __delitem__(self, key: Any) -> None:
         del self.__entries[key]
 
     def add(self, key: Any, value: Any) -> None:
