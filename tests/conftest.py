@@ -20,7 +20,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
-import os
+import shutil
 from pathlib import Path
 
 import pytest
@@ -31,4 +31,4 @@ from trckr.database import Database
 def database():
     test_dir = Path('~/.local/share/trckr/test').expanduser()
     yield Database(test_dir)
-    os.rmdir(test_dir)
+    shutil.rmtree(test_dir)
