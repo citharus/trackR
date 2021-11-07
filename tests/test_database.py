@@ -39,7 +39,6 @@ def test_delete_table(database):
 
 def test_save(database):
     database.create_table('test_save')
-    database['test_save'].add('key', 'value')
     database.save()
     assert os.path.exists(f'{database.path}/test_save') is True
 
