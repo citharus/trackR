@@ -28,10 +28,10 @@ from typing import TYPE_CHECKING
 
 import bson
 
+from trckr.database.table import Table
+
 if TYPE_CHECKING:
     from typing import Iterator
-
-    from trckr.database.table import Table
 
 __all__: list = ['Database']
 
