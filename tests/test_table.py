@@ -24,21 +24,20 @@ import pytest
 
 
 def test_add(database):
-    database.create_table('test_add')
-
-    database['test_add'].add('key', 'value')
-    assert database['test_add'].query() == {'key': 'value'}
+    database['test'].add('key', 'value')
+    assert database['test'].query() == {'key': 'value'}
 
 
 def test_update(database):
-    database['test_add'].update('key', 'value2')
-    assert database['test_add'].query() == {'key': 'value2'}
+    database['test'].update('key', 'value2')
+    assert database['test'].query() == {'key': 'value2'}
 
     with pytest.raises(Exception):
-        database['test_add'].update('wrong_key', 'value')
+        database['test'].update('wrong_key', 'value')
 
 
 def test_delete(database):
-    database['test_add'].delete('key')
+    database['test'].delete('key')
+
     with pytest.raises(Exception):
-        database['test_add'].delete('wrong_key')
+        database['test'].delete('wrong_key')

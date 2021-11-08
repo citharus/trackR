@@ -27,24 +27,27 @@ from trckr.database import Table
 
 
 def test_create_table(database):
-    database.create_table('test_create_table')
-    assert isinstance(database['test_create_table'], Table) is True
+    database.create_table('test')
+    assert isinstance(database['test'], Table) is True
 
 
 def test_delete_table(database):
-    database.delete_table('test_create_table')
+    database.delete_table('test')
+
     with pytest.raises(Exception):
-        database.delete_table('test_create_table')
+        database.delete_table('test')
 
 
 def test_save(database):
-    database.create_table('test_save')
+    database.create_table('test')
+
     database.save()
-    assert os.path.exists(f'{database.path}/test_save') is True
+    assert os.path.exists(f'{database.path}/test') is True
 
 
 def test_load(database):
-    cached_table = database['test_save']
-    database.delete_table('test_save')
+    cached_table = database['test']
+    database.delete_table('test')
+
     database.load()
-    assert database['test_save'].query() == cached_table.query()
+    assert database['test'].query() == cached_table.query()
