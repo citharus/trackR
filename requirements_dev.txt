@@ -3,5 +3,3 @@ pytest-cov==3.0.0
 setuptools==58.3.0
 tox==3.24.4
 flake8==4.0.1
-plotly==5.3.1
-bson==0.5.8
