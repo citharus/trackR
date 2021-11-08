@@ -22,10 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from typing import Union
+from typing import TYPE_CHECKING
 
 import plotly.graph_objects as go
-from trckr.database import Table
+
+if TYPE_CHECKING:
+    from typing import Union
+
+    from trckr.database import Table
 
 
 def plot(table: Table, *, preview: bool = False) -> Union[bytes, str]:
