@@ -30,9 +30,6 @@ class Table:
         self.name: str = name
         self.__entries: dict = entries or dict()
 
-    def __len__(self) -> int:
-        return len(self.__entries)
-
     def __iter__(self) -> Iterable['Table']:
         return iter(self.__entries)
 
