@@ -20,9 +20,19 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #  SOFTWARE.
 
+import pytest
+
 
 def test_add(database):
     database.create_table('test_add')
 
     database['test_add'].add('key', 'value')
     assert database['test_add'].query() == {'key': 'value'}
+
+
+def test_update(database):
+    database['test_add'].update('key', 'value2')
+    assert database['test_add'].query() == {'key': 'value2'}
+
+    with pytest.raises(Exception):
+        database['test_add'].update('wrong_key', 'value')
