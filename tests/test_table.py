@@ -36,3 +36,9 @@ def test_update(database):
 
     with pytest.raises(Exception):
         database['test_add'].update('wrong_key', 'value')
+
+
+def test_delete(database):
+    database['test_add'].delete('key')
+    with pytest.raises(Exception):
+        database['test_add'].delete('wrong_key')
