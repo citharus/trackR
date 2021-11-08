@@ -30,6 +30,7 @@ import bson
 
 if TYPE_CHECKING:
     from typing import Iterator
+
     from trckr.database.table import Table
 
 __all__: list = ['Database']
