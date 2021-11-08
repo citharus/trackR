@@ -24,4 +24,4 @@ from trckr.plotting import plot
 
 
 def test_plot(database):
-    plot(database['test_plot'])
+    plot(database['test_save'])
