@@ -21,12 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterator
+from typing import TYPE_CHECKING
 
 import bson
+
 from trckr.database.table import Table
+
+if TYPE_CHECKING:
+    from typing import Iterator
 
 __all__: list = ['Database']
 
