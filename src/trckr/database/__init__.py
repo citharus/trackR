@@ -23,4 +23,4 @@ SOFTWARE.
 """
 
 from .database import *
-from .table import *
+from .chart import *

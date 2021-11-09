@@ -25,23 +25,23 @@ SOFTWARE.
 import os
 
 import pytest
-from trckr.database import Table
+from trckr.database import Chart
 
 
 def test_create_table(database):
-    database.create_table('test')
-    assert isinstance(database['test'], Table) is True
+    database.create_chart('test')
+    assert isinstance(database['test'], Chart) is True
 
 
 def test_delete_table(database):
-    database.delete_table('test')
+    database.delete_chart('test')
 
     with pytest.raises(Exception):
-        database.delete_table('test')
+        database.delete_chart('test')
 
 
 def test_save(database):
-    database.create_table('test')
+    database.create_chart('test')
 
     database.save()
     assert os.path.exists(f'{database.path}/test') is True
@@ -49,7 +49,7 @@ def test_save(database):
 
 def test_load(database):
     cached_table = database['test']
-    database.delete_table('test')
+    database.delete_chart('test')
 
     database.load()
     assert database['test'].query() == cached_table.query()

@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -28,7 +29,7 @@ from typing import TYPE_CHECKING
 
 import bson
 
-from trckr.database.table import Table
+from trckr.database.chart import Chart
 
 if TYPE_CHECKING:
     from typing import Iterator
@@ -38,7 +39,7 @@ __all__: list = ['Database']
 
 class Database:
     __instance: None = None
-    __tables: dict = dict()
+    __charts: dict = dict()
 
     def __new__(cls, *args) -> 'Database':
         if not cls.__instance:
@@ -51,16 +52,16 @@ class Database:
             self.path.mkdir(parents=True)
 
     def __iter__(self) -> Iterator:
-        return iter(self.__tables)
+        return iter(self.__charts)
 
-    def __getitem__(self, table_name: str) -> Table:
-        return self.__tables[table_name]
+    def __getitem__(self, chart_name: str) -> Chart:
+        return self.__charts[chart_name]
 
-    def __setitem__(self, table_name: str, table: Table) -> None:
-        self.__tables[table_name] = table
+    def __setitem__(self, chart_name: str, chart: Chart) -> None:
+        self.__charts[chart_name] = chart
 
-    def __delitem__(self, table_name: str) -> None:
-        del self.__tables[table_name]
+    def __delitem__(self, chart_name: str) -> None:
+        del self.__charts[chart_name]
 
     def save(self) -> None:
         for table in self:
@@ -69,17 +70,17 @@ class Database:
                 file.write(data)
 
     def load(self) -> None:
-        for table in self.path.iterdir():
-            with open(table, 'rb') as file:
+        for chart in self.path.iterdir():
+            with open(chart, 'rb') as file:
                 data: dict = bson.loads(file.read())
-                self[table.name] = Table(table.name, entries=data)
+                self[chart.name] = Chart(chart.name, entries=data)
 
-    def create_table(self, table_name: str) -> Table:
-        table = self[table_name] = Table(table_name)
-        return table
+    def create_chart(self, chart_name: str) -> Chart:
+        chart = self[chart_name] = Chart(chart_name)
+        return chart
 
-    def delete_table(self, table_name: str) -> None:
+    def delete_chart(self, chart_name: str) -> None:
         try:
-            del self[table_name]
+            del self[chart_name]
         except KeyError:
-            raise Exception(f'Table "{table_name}" does not exist.')
+            raise Exception(f'Table "{chart_name}" does not exist.')

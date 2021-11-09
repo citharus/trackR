@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -30,11 +31,11 @@ import plotly.graph_objects as go
 if TYPE_CHECKING:
     from typing import Union
 
-    from trckr.database import Table
+    from trckr.database import Chart
 
 
-def plot(table: Table, *, preview: bool = False) -> Union[bytes, str]:
-    entries: dict = table.query(limit=10 if preview else None)
+def plot(chart: Chart, *, preview: bool = False) -> Union[bytes, str]:
+    entries: dict = chart.query(limit=10 if preview else None)
     figure: go.Figure = go.Figure(
         data=[
             go.Scatter(

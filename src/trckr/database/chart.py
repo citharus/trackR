@@ -21,6 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
+
 from __future__ import annotations
 
 from typing import TYPE_CHECKING
@@ -28,10 +29,10 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Callable, Any
 
-__all__: list = ['Table']
+__all__: list = ['Chart']
 
 
-class Table:
+class Chart:
     def __init__(self, name: str, *, entries=None) -> None:
         self.name: str = name
         self.__entries: dict = entries or dict()
