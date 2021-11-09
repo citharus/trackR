@@ -32,5 +32,7 @@ from trckr.database import Database
 @pytest.fixture(scope='session')
 def database():
     test_dir = Path('~/.local/share/trckr/test').expanduser()
-    yield Database(test_dir)
+    db = Database(test_dir)
+    db.create_chart('test')
+    yield db
     shutil.rmtree(test_dir)
