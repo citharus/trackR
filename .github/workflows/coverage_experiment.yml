@@ -10,5 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Test
-        run: coverage xml
+      - name: Setup
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Run 
+        run: |
+          pip install coverage
+          coverage xml
