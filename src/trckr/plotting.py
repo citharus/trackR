@@ -29,13 +29,11 @@ from typing import TYPE_CHECKING
 import plotly.graph_objects as go
 
 if TYPE_CHECKING:
-    from typing import Union
-
-    from trckr.database import Chart
+    from trckr.database.chart import Chart
 
 
-def plot(chart: Chart, *, preview: bool = False) -> Union[bytes, str]:
-    entries: dict = chart.query(limit=10 if preview else None)
+def plot(chart: Chart) -> str:
+    entries: dict = chart.query()
     figure: go.Figure = go.Figure(
         data=[
             go.Scatter(
@@ -44,4 +42,17 @@ def plot(chart: Chart, *, preview: bool = False) -> Union[bytes, str]:
             )
         ]
     )
-    return figure.to_image(format='svg') if preview else figure.to_html()
+    return figure.to_html()
+
+
+def preview(chart: Chart) -> str:
+    entries: dict = chart.query(limit=10)
+    figure: go.Figure = go.Figure(
+        data=[
+            go.Scatter(
+                x=list(entries.keys()),
+                y=list(entries.values()),
+            )
+        ]
+    )
+    return figure.to_image(format='svg').decode()
