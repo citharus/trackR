@@ -3,6 +3,7 @@
         xmlns:vm="using:trackR.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Avalonia;assembly=LiveChartsCore.SkiaSharpView.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="trackR.Views.MainWindow"
         Title="trackR">
@@ -11,6 +12,24 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid ColumnDefinitions="*,Auto">
+        <lvc:CartesianChart/>
+        <Grid Grid.Column="1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, *">
+            <DatePicker/>
+            <ComboBox Grid.Row="0" Grid.Column="1"  SelectedIndex="4" >
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+            </ComboBox>
+            <TextBox Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">Notes</TextBox>
+        </Grid>
+    </Grid>
 
 </Window>
