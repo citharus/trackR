@@ -6,4 +6,5 @@ public class DbEntry
 {
     public DateTime DateTime { get; set; }
     public int Value { get; set; }
+    public string Note { get; set; }
 }
