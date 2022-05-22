@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace trackR.ViewModels
+﻿namespace trackR.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        public string Greeting => "Welcome to Avalonia!";
+        public MainWindowViewModel(PlottingViewModel plottingViewModel)
+        {
+            PlottingViewModel = plottingViewModel;
+        }
+
+        public PlottingViewModel PlottingViewModel { get; set; }
     }
 }
