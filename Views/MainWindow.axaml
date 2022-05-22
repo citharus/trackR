@@ -13,7 +13,9 @@
     </Design.DataContext>
 
     <Grid ColumnDefinitions="*,Auto">
-        <lvc:CartesianChart/>
+        <lvc:CartesianChart 
+            Series="{Binding PlottingViewModel.Series }" 
+            XAxes="{Binding PlottingViewModel.XAxes }"/>
         <Grid Grid.Column="1" ColumnDefinitions="Auto, Auto" RowDefinitions="Auto, Auto, *">
             <DatePicker/>
             <ComboBox Grid.Row="0" Grid.Column="1"  SelectedIndex="4" >
