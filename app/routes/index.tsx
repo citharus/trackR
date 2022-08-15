@@ -19,6 +19,11 @@ export default function Index() {
                                              bg-gradient-to-br from-rose-600 to-orange-300">trackR</span>
                         </h1>
                     </Link>
+                    <div className="w-full md:block md:w-auto">
+                        <Link prefetch="intent" to="login">
+                            <button type="button" className="btn btn-gradiant">Login</button>
+                        </Link>
+                    </div>
                 </div>
             </header>
         </div>
