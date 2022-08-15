@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+    @apply py-2 px-2.5 mr-2 font-medium rounded-lg text-sm focus:ring-2
+}
