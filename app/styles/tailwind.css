@@ -11,5 +11,5 @@
 }
 
 .btn-rose-gradiant {
-    @apply text-white bg-gradient-to-tr from-rose-600 to-rose-400 ring-rose-300
+    @apply text-white bg-gradient-to-tr from-rose-600 to-orange-300 ring-rose-300
 }
