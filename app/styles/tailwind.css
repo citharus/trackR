@@ -7,5 +7,5 @@
 }
 
 .btn-rose {
-    @apply text-white bg-rose-500 hover:bg-rose-600 ring-rose-400
+    @apply text-white bg-rose-600 hover:bg-rose-700 ring-rose-500
 }
