@@ -13,3 +13,7 @@
 .btn-rose-gradiant {
     @apply text-white bg-gradient-to-tr from-rose-600 to-orange-300 ring-red-300
 }
+
+.hover\:text-gradiant {
+    @apply hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-tl hover:from-rose-600 hover:to-orange-300
+}
