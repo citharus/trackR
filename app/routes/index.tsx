@@ -10,7 +10,7 @@ export const links: LinksFunction = () => {
 export default function Index() {
     return (
         <div>
-            <header className="py-1 sm:px-4 bg-gray-50 outline outline-1 outline-gray-100">
+            <header className="py-1 sm:px-4 bg-gray-50 outline outline-1 outline-gray-200">
                 <div className="container flex flex-wrap justify-between items-center mx-auto">
                     <Link className="flex items-center" to="/" prefetch="intent">
                         <h1>
