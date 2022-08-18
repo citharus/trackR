@@ -24,7 +24,6 @@ export default function Login() {
         <>
             <main>
                 <Form method="post">
-                    Hello
                     <input type="text" name="username"/>
                     <input type="password" name="password"/>
                     <button type="submit">{data.signup ? "Sign Up" : "Login"}</button>
