@@ -20,7 +20,7 @@ export default function Index() {
                         </h1>
                     </Link>
                     <div className="w-full md:block md:w-auto">
-                        <Link className="py-2 px-2.5 mr-2 font-medium text-sm hover:text-gradiant" prefetch="intent"
+                        <Link className="py-2 px-2.5 mr-2 font-medium text-sm hover:text-orange-500" prefetch="intent"
                               to="login?signup">Sign Up</Link>
                         <Link prefetch="intent" to="login">
                             <button type="button" className="btn btn-gradiant">Login</button>
