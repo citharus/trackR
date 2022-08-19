@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-    @apply py-2 px-2.5 mr-2 font-medium rounded-lg text-sm focus:ring-4 text-center
+    @apply py-2 px-2.5 mr-2 font-medium rounded-lg text-sm focus:ring-2 text-center
 }
 
 .btn-rose {
@@ -11,7 +11,7 @@
 }
 
 .btn-gradiant {
-    @apply text-white bg-gradient-to-tr from-rose-600 to-orange-300 ring-pink-200
+    @apply text-white bg-gradient-to-tr from-rose-600 to-orange-300 ring-orange-300
 }
 
 .hover\:text-gradiant {
