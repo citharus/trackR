@@ -34,9 +34,9 @@ export default function Login() {
                                  text-gray-700"
                       method="post">
                     <input className="mb-6 bg-gray-50 rounded-lg text-sm block w-full p-2 border border-gray-300"
-                           type="text"
-                           name="username"
-                           placeholder="Username"
+                           type="email"
+                           name="email"
+                           placeholder="Email"
                            required={true}/>
                     <input className="mb-3 bg-gray-50 rounded-lg text-sm block w-full p-2 border border-gray-300"
                            type="password"
